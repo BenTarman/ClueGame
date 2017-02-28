@@ -7,16 +7,16 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
+import clueGame.Board;
 import experiment.BoardCell;
-import experiment.IntBoard;
 
 public class IntBoardTest {
 
-	IntBoard board;
+	Board board;
 	@Before
 	public void setup()
 	{
-		 board = new IntBoard(4, 4);
+		 board = new Board(4, 4);
 	
 	}
 	
