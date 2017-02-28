@@ -1,0 +1,11 @@
+A, Ape, Card
+B, Bird, Card
+D, Dolphin, Card
+E, Elephant, Card
+F, Flamingo, Card
+G, Giraffe, Card
+P, Peacock, Card
+R, Rhinocerous, Card
+S, Snake, Card
+X, Closet, Other
+W, Walkway, Other
