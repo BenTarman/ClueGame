@@ -18,9 +18,9 @@ public class Board {
 	 private Set<BoardCell> target;
 	 private BoardCell[][] grid;
 	 
+	 private int row, column;
 	 
 	public Board(int rows, int columns) {
-	
 		super();
 		target = new HashSet<BoardCell>();
 		visited = new HashSet<BoardCell>();
@@ -38,15 +38,44 @@ public class Board {
 		}
 	}
 	
+	// variable used for singleton pattern
+	private static Board theInstance = new Board();
+	// ctor is private to ensure only one can be created
+	private Board() {}
+	// this method returns the only Board
+	public static Board getInstance() {
+		return theInstance;
+	}
 
-
-
+	public void setConfigFiles()
+	{
+		
+	}
+	
+	public void initialize()
+	{
+	
+	}
+	
+	public int getNumRows()
+	{
+		return row;
+	}
+	
+	public int getNumColumns()
+	{
+		return column;
+	}
+	
 	public void calcAdjacencies()
 	{
 		
 	}
 	 
-
+	public BoardCell getCellAt(int r, int c)
+	{
+		return grid[r][c];
+	}
 	
 	public Set<BoardCell> getTargets()
 	{	
@@ -54,7 +83,10 @@ public class Board {
 		return target;
 	}
 	
-	
+	public Map<Character, String> getLegend()
+	{
+		return null;
+	}
 	
 	public BoardCell getCell(int row, int col)
 	{

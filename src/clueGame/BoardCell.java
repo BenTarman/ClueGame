@@ -21,5 +21,10 @@ public class BoardCell {
 		
 		return col;
 	}
+	
+	public boolean isDoorway()
+	{
+		return false;
+	}
 
 }
