@@ -18,13 +18,25 @@ public class BoardCell {
 
 	public int getCol()
 	{
-		
+	
 		return col;
 	}
 	
 	public boolean isDoorway()
 	{
 		return false;
+	}
+	
+	public DoorDirection getDoorDirection()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getInitial()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

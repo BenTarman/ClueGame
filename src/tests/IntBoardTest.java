@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import clueGame.Board;
-import experiment.BoardCell;
+import clueGame.BoardCell;
 
 public class IntBoardTest {
 

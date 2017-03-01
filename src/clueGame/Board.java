@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import experiment.BoardCell;
+import clueGame.BoardCell;
 
 public class Board {
 	 private static Map<BoardCell, Set<BoardCell>> adjMtx;
@@ -47,7 +47,7 @@ public class Board {
 		return theInstance;
 	}
 
-	public void setConfigFiles()
+	public void setConfigFiles(String gameBoardFile, String gameCardsFile)
 	{
 		
 	}
@@ -74,7 +74,10 @@ public class Board {
 	 
 	public BoardCell getCellAt(int r, int c)
 	{
-		return grid[r][c];
+		BoardCell cell = new BoardCell(0,0);
+		
+		
+		return cell;
 	}
 	
 	public Set<BoardCell> getTargets()
