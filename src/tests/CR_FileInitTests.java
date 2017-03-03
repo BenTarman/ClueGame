@@ -90,9 +90,11 @@ public class CR_FileInitTests {
 	public void testNumberOfDoorways() 
 	{
 		int numDoors = 0;
+
 		for (int row=0; row<board.getNumRows(); row++)
 			for (int col=0; col<board.getNumColumns(); col++) {
-				BoardCell cell = board.getCellAt(row, col);
+				BoardCell cell = board.getCellAt(row, col);	
+				System.out.println(cell.getRoomType());
 				if (cell.isDoorway())
 					numDoors++;
 			}

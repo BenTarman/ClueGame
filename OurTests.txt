@@ -1,0 +1,6 @@
+We changed it to have our room names instead of yours
+
+Since our map is different we have different location for our doors
+
+Our map is the same size as well as legend so that is left the same as the instructor's tests.
+

@@ -3,7 +3,7 @@ package clueGame;
 
 public class BoardCell {
 	private int row, col;
-
+	private String room_type = "";
 
 	public BoardCell(int r, int c)
 	{
@@ -22,8 +22,26 @@ public class BoardCell {
 		return col;
 	}
 	
+	public void SetRoomType(String type)
+	{
+		room_type = type;
+	}
+	
+	public String getRoomType()
+	{
+		return room_type;
+	}
+	
 	public boolean isDoorway()
 	{
+		
+		if(room_type.length() == 2)
+		{
+			if (room_type.charAt(1) == 'N')
+				return false;
+			else
+				return true;
+		}
 		return false;
 	}
 	
