@@ -18,6 +18,8 @@ import org.junit.Assert;
 import clueGame.BoardCell;
 
 public class Board {
+	private String gameBoardFileTest, gameCardsFileTest;  //maybe termporary variables for testing
+	
 	private static Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> visited;
 	private Set<BoardCell> target;
@@ -62,6 +64,11 @@ public class Board {
 
 	public void setConfigFiles(String gameBoardFile, String gameCardsFile)
 	{
+		//temporry setting for tests
+		gameBoardFileTest = gameBoardFile;
+		gameCardsFileTest = gameCardsFile;
+		
+		
 		String line = "";
 		String[] data = null;
 		String delimiter = ", ";
@@ -100,7 +107,7 @@ public class Board {
 			e.printStackTrace();
 		}
 
-		grid = new BoardCell[50][50];
+		grid = new BoardCell[100][100];
 		
 		while(read.hasNextLine())
 		{
@@ -224,17 +231,64 @@ public class Board {
 
 	public static void main(String[] args)
 	{
-		Board board = getInstance();
-		board.setConfigFiles("CR_ClueLayout.csv", "CR_ClueLegend.txt");
 		
-		int numDoors = 0;
 
-		for (int row=0; row<board.getNumRows(); row++)
-			for (int col=0; col<board.getNumColumns(); col++) {
-				BoardCell cell = board.getCellAt(row, col);
-				if (cell.isDoorway())
-					numDoors++;
-			}
 	
 	}
+	public void loadRoomConfig() throws BadConfigFormatException
+	{
+		String line = "";
+		String[] data = null;
+		String delimiter = ", ";
+		File file = new File("data/" + gameCardsFileTest);
+		Scanner read = null;
+		
+		try
+		{
+			read = new Scanner(file);
+		}
+		catch (FileNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		while (read.hasNextLine())
+		{
+			line = read.nextLine();
+			data = line.split(delimiter);
+			if (data[2] != "Other" || data[2] != "Card")
+				throw new BadConfigFormatException("room type is not 'Other' or 'Card'");
+		}
+		
+	}
+	public void loadBoardConfig() throws BadConfigFormatException
+	{
+		String line = "";
+		String[] data = null;
+		String delimiter = ", ";
+		File file = new File("data/" + gameBoardFileTest);
+		Scanner read = null;
+		
+		try
+		{
+			read = new Scanner(file);
+		}
+		catch (FileNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		while (read.hasNextLine())
+		{
+			line = read.nextLine();
+			data = line.split(delimiter);
+			
+			if( data.length != column)
+				throw new BadConfigFormatException("not consistent columsn and rows");
+		}
+		
+	}
+	
 }
