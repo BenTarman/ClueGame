@@ -66,16 +66,17 @@ public class configTest {
 	// These cells are white on the planning spreadsheet
 	@Test
 	public void FourDoorDirections() {
-		BoardCell room = board.getCellAt(5, 3);
+		BoardCell room = board.getCellAt(3, 16);
+		
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.RIGHT, room.getDoorDirection());
 		room = board.getCellAt(4, 9);
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.DOWN, room.getDoorDirection());
-		room = board.getCellAt(15, 20);
+		room = board.getCellAt(9, 6);
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.LEFT, room.getDoorDirection());
-		room = board.getCellAt(15, 15);
+		room = board.getCellAt(19, 8);
 		assertTrue(room.isDoorway());
 		assertEquals(DoorDirection.UP, room.getDoorDirection());
 		// Test that room pieces that aren't doors know it
@@ -98,7 +99,7 @@ public class configTest {
 				if (cell.isDoorway())
 					numDoors++;
 			}
-		Assert.assertEquals(16, numDoors);
+		Assert.assertEquals(24, numDoors);
 	}
 
 	// Test a few room cells to ensure the room initial is correct.
@@ -106,11 +107,11 @@ public class configTest {
 	public void testRoomInitials() {
 		// Test first cell in room
 		assertEquals('A', board.getCellAt(0, 0).getInitial());
-		assertEquals('D', board.getCellAt(4, 8).getInitial());
+		assertEquals('D', board.getCellAt(0, 7).getInitial());
 		assertEquals('B', board.getCellAt(9, 0).getInitial());
 		// Test last cell in room
-		assertEquals('E', board.getCellAt(21, 22).getInitial());
-		assertEquals('X', board.getCellAt(21, 0).getInitial());
+		assertEquals('E', board.getCellAt(13, 8).getInitial());
+		assertEquals('X', board.getCellAt(12, 14).getInitial());
 		// Test a walkway
 		assertEquals('W', board.getCellAt(0, 5).getInitial());
 		// Test the closet

@@ -27,6 +27,12 @@ public class BoardCell {
 		room_type = type;
 	}
 	
+	public String getRoomType()
+	{
+		return room_type;
+	}
+	
+	
 	public boolean isDoorway()
 	{
 		
@@ -44,7 +50,7 @@ public class BoardCell {
 	{
 		if (room_type.charAt(1) == 'R')
 			return  DoorDirection.RIGHT;
-		else if (room_type.charAt(1) == 'L')
+		if (room_type.charAt(1) == 'L')
 			return  DoorDirection.LEFT;
 		if (room_type.charAt(1) == 'D')
 			return  DoorDirection.DOWN;
