@@ -94,7 +94,6 @@ public class CR_FileInitTests {
 		for (int row=0; row<board.getNumRows(); row++)
 			for (int col=0; col<board.getNumColumns(); col++) {
 				BoardCell cell = board.getCellAt(row, col);	
-				System.out.println(cell.getRoomType());
 				if (cell.isDoorway())
 					numDoors++;
 			}
@@ -105,6 +104,7 @@ public class CR_FileInitTests {
 	@Test
 	public void testRoomInitials() {
 		// Test first cell in room
+		
 		assertEquals('C', board.getCellAt(0, 0).getInitial());
 		assertEquals('R', board.getCellAt(4, 8).getInitial());
 		assertEquals('B', board.getCellAt(9, 0).getInitial());

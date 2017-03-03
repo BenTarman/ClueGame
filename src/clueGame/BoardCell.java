@@ -27,11 +27,6 @@ public class BoardCell {
 		room_type = type;
 	}
 	
-	public String getRoomType()
-	{
-		return room_type;
-	}
-	
 	public boolean isDoorway()
 	{
 		
@@ -47,14 +42,21 @@ public class BoardCell {
 	
 	public DoorDirection getDoorDirection()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		if (room_type.charAt(1) == 'R')
+			return  DoorDirection.RIGHT;
+		else if (room_type.charAt(1) == 'L')
+			return  DoorDirection.LEFT;
+		if (room_type.charAt(1) == 'D')
+			return  DoorDirection.DOWN;
+		if (room_type.charAt(1) == 'U')
+			return  DoorDirection.UP;
+		
+		return DoorDirection.NONE;
 	}
 
-	public Object getInitial()
+	public char getInitial()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return room_type.charAt(0);
 	}
 
 }
