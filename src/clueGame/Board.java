@@ -308,21 +308,27 @@ public class Board {
 		visited = new HashSet<BoardCell>();
 		
 		target = new HashSet<BoardCell>();
-		Set<BoardCell> adjList = getAdjList(i,j);	//access Set list direclty over adjMtx
 		
 		
-		visited.add(getCellAt(i,j)); //add initial location
 		
-		RecursionForTargets(pathLength, adjList);
+		
+		
+		findAllTargets(i, j, pathLength);
 		
 		
 	
 	}
 		
-	private void RecursionForTargets(int pathLength, Set<BoardCell> adjList)
+	private void findAllTargets(int i, int j, int pathLength)
 	{
+		Set<BoardCell> adjList = getAdjList(i,j);	//access Set list direclty over adjMtx
+		
+		
+		
 		for (BoardCell s : adjList)
 		{
+			visited.add(getCellAt(i,j)); //add initial location
+			
 			if (visited.contains(s))
 				continue; //go to next in list if already visited
 			else
@@ -332,7 +338,7 @@ public class Board {
 				target.add(s);
 
 			else
-				calcTargets(s.getRow(), s.getCol(), pathLength - 1);
+				findAllTargets(s.getRow(), s.getCol(), pathLength - 1);
 
 			visited.remove(s);	//remove at end.
 

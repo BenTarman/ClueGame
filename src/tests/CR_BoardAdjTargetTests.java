@@ -201,7 +201,7 @@ public class CR_BoardAdjTargetTests {
 		board.calcTargets(21, 7, 2);
 		Set<BoardCell> targets= board.getTargets();
 		
-		assertEquals(3, targets.size());
+		assertEquals(2, targets.size());
 		
 		assertTrue(targets.contains(board.getCellAt(19, 7)));
 		assertTrue(targets.contains(board.getCellAt(20, 6)));
