@@ -279,7 +279,7 @@ public class Board {
 			if (getCellAt(cell.getRow() - 1, cell.getCol()).getRoomType().equals("W"))
 				adj.add(grid[cell.getRow() - 1][cell.getCol()]);
 	
-			else if(getCellAt(cell.getRow() - 1, cell.getCol()).isDoorway() &&  getCellAt(cell.getRow() - 1, cell.getCol()).getRoomType().equals("LD"))
+			else if(getCellAt(cell.getRow() - 1, cell.getCol()).isDoorway() &&  getCellAt(cell.getRow() - 1, cell.getCol()).getDoorDirection().equals(DoorDirection.DOWN))
 					adj.add(grid[cell.getRow() - 1][cell.getCol()]);
 			
 		}
@@ -324,11 +324,10 @@ public class Board {
 		Set<BoardCell> adjList = getAdjList(i,j);	//access Set list direclty over adjMtx
 		
 		
+		visited.add(getCellAt(i,j)); //add initial location
 		
 		for (BoardCell s : adjList)
 		{
-			visited.add(getCellAt(i,j)); //add initial location
-			
 			if (visited.contains(s))
 				continue; //go to next in list if already visited
 			else
