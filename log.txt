@@ -1,0 +1,121 @@
+In-class work was typically done as pair programming (one pc).  Out of class time we used github.
+
+commit 060aaba29f100b8d59b8d8df7df00aae8c10e697
+Author: Tyler Combs <Tyler Combs>
+Date:   Tue Mar 7 22:39:51 2017 -0700
+
+    Fixed errors student-created tests, now all tests pass.
+
+commit 57ac774380bf26921fc3749c32b968512f787f84
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Tue Mar 7 21:45:05 2017 -0700
+
+    cleaned up files
+
+commit 5bcd0cad8ebe1f833d74c66b23ea6217386df956
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Tue Mar 7 21:40:24 2017 -0700
+
+    all teachers test pass
+
+commit 281b4f83c78cbe53a4c115348607532dc3539fd6
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Tue Mar 7 21:19:08 2017 -0700
+
+    fixed an adjacny list bug for DOWN direction doors
+
+commit ebc6bb7bbbc621a34a3a619ec2314ebc0102146c
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Tue Mar 7 21:04:41 2017 -0700
+
+    most tests work for instructor
+
+commit 5ed313f3a7b48e29b5b8dc139d6a5e743ed4c274
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Tue Mar 7 20:49:56 2017 -0700
+
+    refactored methods into an IntBoard Class
+
+commit c9cf564a3f226acc617d9b55b14290d48fb80b0a
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Tue Mar 7 20:34:14 2017 -0700
+
+    adjancy tests work
+
+commit 91b05cd3e285faaa835e061770e1a32ec88d735f
+Author: Tyler Combs <Tyler Combs>
+Date:   Mon Mar 6 18:33:46 2017 -0700
+
+    Added failing tests for target and adjacency calculation (Part 3)
+
+commit cc9f7e694a82e41d2e2749d916d4a2a492d53e9f
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Thu Mar 2 19:28:07 2017 -0700
+
+    finished exception handling tests
+
+commit 153ba631d0ebf691f5a29922bed66a27d20ff757
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Thu Mar 2 18:27:41 2017 -0700
+
+    our test passed and files managed more
+
+commit cd763b84aba3491e6fb796ed6cf6d4f22b7756b3
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Thu Mar 2 18:14:16 2017 -0700
+
+    re managed files
+
+commit 9f294e532b7936ada0dc07c2d6a769bb06d713cc
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Thu Mar 2 18:12:14 2017 -0700
+
+    all the instructors test pass
+
+commit 4dfb1a58bc0c3ee46d48491e0b995f719d4d53d5
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Thu Mar 2 17:59:52 2017 -0700
+
+    num doors now works
+
+commit 9803f8b0c8ab220368c5debd9d36ca0ea859fe75
+Author: Benjamin Tarman <lordeango@gmail.com>
+Date:   Thu Mar 2 17:20:59 2017 -0700
+
+    First two tests working
+
+commit 8d74f7d9be20e4fe48d86b486014bc2165183858
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Tue Feb 28 23:38:49 2017 -0700
+
+    finished testing rooms in the legend27
+
+commit d882469cecd760572609c166fbc7452e22f81b37
+Author: Ben Tarman <btarman@mymail.mines.edu>
+Date:   Tue Feb 28 23:27:13 2017 -0700
+
+    have the instructors tests failing appropriately
+
+commit e3996cee00bf9b7796a8ce6a1ff1d075ff5101d5
+Author: Tyler Combs <tylercombs@mines.edu>
+Date:   Tue Feb 28 16:58:02 2017 -0700
+
+    Failing Tests with method skeletons
+
+commit 45b2a08799a9f67e2ff795867542c6766acb294f
+Author: Benjamin Tarman <btarman@adit.mines.edu>
+Date:   Tue Feb 28 16:36:27 2017 -0700
+
+    added files and data
+
+commit d636133a42615dbb4a54c867a59fa959043417ad
+Author: Benjamin Tarman <btarman@adit.mines.edu>
+Date:   Tue Feb 28 16:31:17 2017 -0700
+
+    moved classes to clueGame package
+
+commit b939c0bb841acc64e7794f99df9d856097dc3cf2
+Author: Benjamin Tarman <btarman@adit.mines.edu>
+Date:   Tue Feb 28 16:24:11 2017 -0700
+
+    initial commit
