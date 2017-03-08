@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Set;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import clueGame.Board;
@@ -12,7 +13,9 @@ import clueGame.BoardCell;
 
 public class IntBoardTest {
 
-	Board board;
+	
+	
+	private static Board board;
 	@Before
 	public void setup()
 	{

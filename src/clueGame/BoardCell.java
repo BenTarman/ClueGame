@@ -65,4 +65,6 @@ public class BoardCell {
 		return room_type.charAt(0);
 	}
 
+	
+
 }

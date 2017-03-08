@@ -21,8 +21,8 @@ public class Board {
 	private String gameBoardFileTest, gameCardsFileTest;  //maybe termporary variables for testing
 	
 	private static Map<BoardCell, Set<BoardCell>> adjMtx;
-	private Set<BoardCell> visited;
-	private Set<BoardCell> target;
+	private Set<BoardCell> visited = new HashSet<BoardCell>();
+	private Set<BoardCell> target = new HashSet<BoardCell>();
 	private BoardCell[][] grid;
 
 	private Map<Character, String> legend = new HashMap<Character, String>();
@@ -32,8 +32,7 @@ public class Board {
 	public Board(int rows, int columns) {
 		super();
 
-		target = new HashSet<BoardCell>();
-		visited = new HashSet<BoardCell>();
+		
 		adjMtx = new HashMap<BoardCell, Set<BoardCell>>();	 
 		grid = new BoardCell[rows][columns];
 
@@ -69,10 +68,16 @@ public class Board {
 		gameCardsFileTest = gameCardsFile;
 		
 		
+		
+	}
+
+	public void initialize()
+	{
+		
 		String line = "";
 		String[] data = null;
 		String delimiter = ", ";
-		File file = new File("data/" + gameCardsFile);
+		File file = new File("data/" + gameCardsFileTest);
 		Scanner read = null;
 		
 		try
@@ -95,7 +100,7 @@ public class Board {
 		line = "";
 		delimiter = ",";
 		data = null;
-		file = new File("data/" + gameBoardFile);
+		file = new File("data/" + gameBoardFileTest);
 		
 		try
 		{
@@ -125,11 +130,6 @@ public class Board {
 			}
 			row++;
 		}
-	}
-
-	public void initialize()
-	{
-		
 	}
 
 	public int getNumRows()
@@ -198,43 +198,14 @@ public class Board {
 			adj.add(grid[cell.getRow() + 1][cell.getCol()]);
 		}
 
-		adjMtx.put(cell, adj);
+
 
 		return adj;
 	}
 
-	public void calcTargets(BoardCell startCell, int pathLength)
-	{
-		visited.add(startCell); //add initial location
-
-		Set<BoardCell> adjList = getAdjList(startCell);	//access Set list direclty over adjMtx
-
-		for (BoardCell s : adjList)
-		{
-			if (visited.contains(s))
-				continue; //go to next in list if already visited
-			else
-				visited.add(s);
-
-			if (pathLength == 1)
-			{
-				target.add(s);
-
-			}
-			else
-				calcTargets(s, pathLength - 1);
-
-			visited.remove(s);	//remove at end.
-
-		}
-	}
-
-	public static void main(String[] args)
-	{
-		
-
 	
-	}
+
+
 	public void loadRoomConfig() throws BadConfigFormatException
 	{
 		String line = "";
@@ -290,5 +261,181 @@ public class Board {
 		}
 		
 	}
+	
+	public Set<BoardCell> getAdjList(int i, int j)
+	{
+		
+	BoardCell cell = getCellAt(i,j);
+	Set<BoardCell> adj = new HashSet<BoardCell>();
+
+
+	if (cell.isDoorway())
+	{
+		//Left
+		if((cell.getCol() > 0) && (cell.getDoorDirection().equals(DoorDirection.LEFT)))
+		{
+			if (getCellAt(cell.getRow() , cell.getCol() - 1).getRoomType().equals("W"))
+				adj.add(grid[cell.getRow()][cell.getCol() - 1]);
+
+		}
+
+		// Right
+		if((cell.getCol() < grid[0].length - 1) && (cell.getDoorDirection().equals(DoorDirection.RIGHT)))
+		{	
+			
+			
+			if (getCellAt(cell.getRow() , cell.getCol() + 1).getRoomType().equals("W"))
+				adj.add(grid[cell.getRow()][cell.getCol() + 1]);
+
+		}
+
+		// Up
+		if((cell.getRow() > 0) && (cell.getDoorDirection().equals(DoorDirection.UP)))
+		{
+			if (getCellAt(cell.getRow() - 1, cell.getCol()).getRoomType().equals("W"))
+				adj.add(grid[cell.getRow() - 1][cell.getCol()]);
+		}
+		
+		// Down
+		if((cell.getRow() < grid.length + 1)  && (cell.getDoorDirection().equals(DoorDirection.DOWN)))
+		{
+			
+			if (getCellAt(cell.getRow() + 1, cell.getCol()).getRoomType().equals("W"))
+				adj.add(grid[cell.getRow() + 1][cell.getCol()]);
+		}
+	}
+	
+	else if (!cell.isDoorway() && !cell.getRoomType().equals("W"))
+	{
+		//pass
+	}
+	
+	else
+	{
+		// Left
+		if(cell.getCol() > 0)
+		{
+			if (getCellAt(cell.getRow() , cell.getCol() - 1).getRoomType().equals("W"))
+				adj.add(grid[cell.getRow()][cell.getCol() - 1]);
+			else if (getCellAt(cell.getRow() , cell.getCol() - 1).isDoorway() && getCellAt(cell.getRow() , cell.getCol() - 1).getDoorDirection().equals(DoorDirection.RIGHT))
+				adj.add(grid[cell.getRow()][cell.getCol() - 1]);
+
+		}
+
+		// Right
+		if(cell.getCol() < grid[0].length - 1)
+		{
+			if (getCellAt(cell.getRow() , cell.getCol() + 1).getRoomType().equals("W"))
+				adj.add(grid[cell.getRow()][cell.getCol() + 1]);
+			else if( getCellAt(cell.getRow() , cell.getCol() + 1).isDoorway() &&  getCellAt(cell.getRow() , cell.getCol() + 1).getDoorDirection().equals(DoorDirection.LEFT))
+				adj.add(grid[cell.getRow()][cell.getCol() + 1]);
+
+		}
+
+		// Up
+		if(cell.getRow() > 0)
+		{
+		
+			if (getCellAt(cell.getRow() - 1, cell.getCol()).getRoomType().equals("W"))
+				adj.add(grid[cell.getRow() - 1][cell.getCol()]);
+	
+			else if(getCellAt(cell.getRow() - 1, cell.getCol()).isDoorway() &&  getCellAt(cell.getRow() - 1, cell.getCol()).getRoomType().equals("LD"))
+					adj.add(grid[cell.getRow() - 1][cell.getCol()]);
+			
+		}
+
+		// Down
+		if(cell.getRow() < (row - 1))
+		{
+			if (getCellAt(cell.getRow() + 1, cell.getCol()).getRoomType().equals("W"))
+				adj.add(grid[cell.getRow() + 1][cell.getCol()]);
+			else if ( getCellAt(cell.getRow() + 1, cell.getCol()).isDoorway() &&  getCellAt(cell.getRow() + 1, cell.getCol()).getDoorDirection().equals(DoorDirection.UP))
+				adj.add(grid[cell.getRow() + 1][cell.getCol()]);
+		}
+	}
+
+	
+	return adj;
+			
+	}
+	
+	
+	public void calcTargets(BoardCell startCell, int pathLength)
+	{
+		visited.add(startCell); //add initial location
+
+		Set<BoardCell> adjList = getAdjList(startCell);	//access Set list direclty over adjMtx
+
+		for (BoardCell s : adjList)
+		{
+			if (visited.contains(s))
+				continue; //go to next in list if already visited
+			else
+				visited.add(s);
+
+			if (pathLength == 1)
+			{
+				target.add(s);
+
+			}
+			else
+				calcTargets(s, pathLength - 1);
+
+			visited.remove(s);	//remove at end.
+
+		}
+	}
+	
+
+	public void calcTargets(int i, int j, int pathLength)
+	{
+		visited = new HashSet<BoardCell>();
+		
+		target = new HashSet<BoardCell>();
+		Set<BoardCell> adjList = getAdjList(i,j);	//access Set list direclty over adjMtx
+		
+		
+		visited.add(getCellAt(i,j)); //add initial location
+		
+		RecursionForTargets(pathLength, adjList);
+		
+		
+	
+	}
+		
+	private void RecursionForTargets(int pathLength, Set<BoardCell> adjList)
+	{
+		
+
+		for (BoardCell s : adjList)
+		{
+			if (visited.contains(s))
+				continue; //go to next in list if already visited
+			else
+				visited.add(s);
+
+			if (pathLength == 1)
+			{
+				target.add(s);
+
+			}
+			else
+				calcTargets(s.getRow(), s.getCol(), pathLength - 1);
+
+			visited.remove(s);	//remove at end.
+
+		}
+	}
+
+	
+	
+	
+	public static void main(String[] args)
+	{
+		
+
+	
+	}
+	
 	
 }

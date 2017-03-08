@@ -10,8 +10,8 @@ import org.junit.Test;
 import clueGame.Board;
 import clueGame.BoardCell;
 
-public class ZooMovementTests {
-	static Board board;
+public class BoardAdjTargetTests {
+	private static Board board;
 
 	@BeforeClass
 	public static void setUp() {

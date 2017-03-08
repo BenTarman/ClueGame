@@ -16,11 +16,14 @@ public class CR_ExceptionTests {
 
 	// Test that an exception is thrown for a config file that does not 
 	// have the same number of columns for each row
+	
+	
 	@Test (expected = BadConfigFormatException.class)
 	public void testBadColumns() throws BadConfigFormatException, FileNotFoundException {
 		// Note that we are using a LOCAL Board variable, because each 
 		// test will load different files
 		Board board = Board.getInstance();
+		
 		board.setConfigFiles("CR_ClueLayoutBadColumns.csv", "CR_ClueLegend.txt");
 		// Instead of initialize, we call the two load functions directly.
 		// This is necessary because initialize contains a try-catch. 
@@ -34,6 +37,8 @@ public class CR_ExceptionTests {
 	@Test (expected = BadConfigFormatException.class)
 	public void testBadRoom() throws BadConfigFormatException, FileNotFoundException {
 		Board board = Board.getInstance();
+		
+		
 		board.setConfigFiles("CR_ClueLayoutBadRoom.csv", "CR_ClueLegend.txt");
 		board.loadRoomConfig();
 		board.loadBoardConfig();
@@ -46,6 +51,12 @@ public class CR_ExceptionTests {
 		Board board = Board.getInstance();
 		board.setConfigFiles("CR_ClueLayout.csv", "CR_ClueLegendBadFormat.txt");
 		board.loadRoomConfig();
+		
+	
+	
+	
 	}
+	
+
 
 }
