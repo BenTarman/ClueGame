@@ -335,6 +335,8 @@ public class Board {
 
 			if (pathLength == 1)
 				target.add(s);
+			else if (s.isDoorway())
+				target.add(s);
 
 			else
 				findAllTargets(s.getRow(), s.getCol(), pathLength - 1);

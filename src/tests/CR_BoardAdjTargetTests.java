@@ -60,12 +60,10 @@ public class CR_BoardAdjTargetTests {
 	@Test
 	public void testAdjacencyRoomExit()
 	{
-	
 		// TEST DOORWAY RIGHT 
 		Set<BoardCell> testList = board.getAdjList(11, 6);
 		assertEquals(1, testList.size());
 		assertTrue(testList.contains(board.getCellAt(11, 7)));
-		
 		// TEST DOORWAY LEFT 
 		testList = board.getAdjList(10, 17);
 		assertEquals(1, testList.size());
@@ -80,7 +78,6 @@ public class CR_BoardAdjTargetTests {
 		assertTrue(testList.contains(board.getCellAt(6, 20)));
 		//TEST DOORWAY RIGHT, WHERE THERE'S A WALKWAY BELOW
 		testList = board.getAdjList(4, 3);
-		
 		assertEquals(1, testList.size());
 		assertTrue(testList.contains(board.getCellAt(4, 4)));
 		
@@ -179,7 +176,6 @@ public class CR_BoardAdjTargetTests {
 	// These are LIGHT BLUE on the planning spreadsheet
 	@Test
 	public void testTargetsOneStep() {
-
 		board.calcTargets(21, 7, 1);
 		Set<BoardCell> targets= board.getTargets();
 		assertEquals(2, targets.size());
@@ -200,26 +196,12 @@ public class CR_BoardAdjTargetTests {
 	public void testTargetsTwoSteps() {
 		board.calcTargets(21, 7, 2);
 		Set<BoardCell> targets= board.getTargets();
-		
 		assertEquals(2, targets.size());
-		
 		assertTrue(targets.contains(board.getCellAt(19, 7)));
 		assertTrue(targets.contains(board.getCellAt(20, 6)));
 		
-
-		
-		
 		board.calcTargets(14, 0, 2);
-		
-	
-		
 		targets= board.getTargets();
-		
-	
-		
-		for (BoardCell s : targets)
-			System.out.println(s.getRow() + " " + s.getCol());
-		
 		assertEquals(3, targets.size());
 		assertTrue(targets.contains(board.getCellAt(12, 0)));
 		assertTrue(targets.contains(board.getCellAt(14, 2)));	
@@ -295,8 +277,8 @@ public class CR_BoardAdjTargetTests {
 		board.calcTargets(12, 7, 3);
 		Set<BoardCell> targets= board.getTargets();
 		
-		
-		
+		for (BoardCell s : targets)
+			System.out.println(s.getRow() + " " + s.getCol());
 		assertEquals(12, targets.size());
 		// directly up and down
 		assertTrue(targets.contains(board.getCellAt(15, 7)));
