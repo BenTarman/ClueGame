@@ -1,26 +1,18 @@
 package clueGame;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-import org.junit.Assert;
-
 import clueGame.BoardCell;
 
 public class Board {
 	private String gameBoardFileTest, gameCardsFileTest;  //maybe termporary variables for testing
 	
-	private static Map<BoardCell, Set<BoardCell>> adjMtx;
 	private Set<BoardCell> visited = new HashSet<BoardCell>();
 	private Set<BoardCell> target = new HashSet<BoardCell>();
 	private BoardCell[][] grid;
@@ -335,7 +327,7 @@ public class Board {
 
 			if (pathLength == 1)
 				target.add(s);
-			else if (s.isDoorway())
+			else if (s.isDoorway())	//add it as target if its a doorway
 				target.add(s);
 
 			else

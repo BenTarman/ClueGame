@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class IntBoard
 {
-	private static Map<BoardCell, Set<BoardCell>> adjMtx;
+
 	private Set<BoardCell> visited = new HashSet<BoardCell>();
 	private Set<BoardCell> target = new HashSet<BoardCell>();
 	private BoardCell[][] grid;
@@ -21,7 +21,7 @@ public class IntBoard
 		super();
 
 		
-		adjMtx = new HashMap<BoardCell, Set<BoardCell>>();	 
+		
 		grid = new BoardCell[rows][columns];
 
 		for(int i = 0; i < rows; i++)
