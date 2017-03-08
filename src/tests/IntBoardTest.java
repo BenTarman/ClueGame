@@ -5,21 +5,18 @@ import static org.junit.Assert.*;
 import java.util.Set;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import clueGame.Board;
 import clueGame.BoardCell;
+import clueGame.IntBoard;
 
 public class IntBoardTest {
 
-	
-	
-	private static Board board;
+	IntBoard board;
 	@Before
 	public void setup()
 	{
-		 board = new Board(4, 4);
+		 board = new IntBoard(4, 4);
 	
 	}
 	
@@ -195,3 +192,4 @@ public class IntBoardTest {
 	}
 	
 	
+
